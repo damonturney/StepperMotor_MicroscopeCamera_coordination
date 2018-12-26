@@ -110,7 +110,7 @@ def collectimages():
     ToupView=app.window(title="ToupView")  #creates a dialogue with the main ToupView window
     ser = serial.Serial('COM1',timeout=1,baudrate=300)
     time.sleep(1)
-    num_subimages=16
+    num_subimages=1
     k=1
     while getattr(t, "stop") == False:
         ser.setRTS(True)
@@ -147,7 +147,7 @@ def collectimages():
         time.sleep(1)
         ser.setRTS(False)
         if k>1: ser.write(bytearray(10*(k)*[170]))
-        for i in range(60):
+        for i in range(15):
             try:
                 item = q.get(True, 1)
                 if item =='q': break
